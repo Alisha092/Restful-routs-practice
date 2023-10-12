@@ -1,0 +1,16 @@
+<%- include('../partials/bootstrap') %>
+    <title>Show</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Comment id: <%= comment.id %></h1>
+        <h2><%= comment.comment %> - <%= comment.username %></h2>
+        <span class="badge text-bg-warning"><a href="comments/<%= comment.id %>/edit">Edit</a></span>
+        <form method="post" action="/comments/<%=comment.id%>?_method=DELETE">
+            <button class="badge text-bg-danger">DELETE</button>
+        </form>
+        <br>
+        <a href="/comments">Back to index</a>
+    </div>
+</body>
+</html>

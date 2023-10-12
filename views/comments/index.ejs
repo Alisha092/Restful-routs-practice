@@ -1,0 +1,21 @@
+<%- include('../partials/bootstrap') %>
+    <title>Comments</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Comments</h1>
+        <ul>
+            <% for(let c of comments) { %>
+            <li><%=c.comment%> - <b><%=c.username%></b></li>
+            <span class="badge text-bg-primary"><a href="comments/<%= c.id %>">Details</a></span>
+            <span class="badge text-bg-warning"><a href="comments/<%= c.id %>/edit">Edit</a></span>
+            <form method="post" action="/comments/<%=c.id%>?_method=DELETE">
+                <button class="badge text-bg-danger">DELETE</button>
+            </form>
+            <% }%>
+        </ul>
+
+        <a href="/comments/new">Make New Comment</a>
+    </div>
+</body>
+</html>
